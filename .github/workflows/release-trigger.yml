@@ -1,0 +1,13 @@
+name: Trigger Jenkins on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  trigger-jenkins:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins
+        run: |
+          curl -X POST https://jenkins.hideonheart.top/github-webhook/
